@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Avaliar Revisora{% endblock %}
+
+{% block content %}
+<h2>⭐ Avaliar Revisora</h2>
+
+<form method="POST" class="form-padrao">
+
+    <label for="revisora">Selecione a revisora:</label>
+    <select name="revisora_id" id="revisora" required>
+        {% for id, nome in revisoras %}
+            <option value="{{ id }}">{{ nome }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="placa">Placa:</label>
+    <select name="placa" id="placa" required>
+        <option value="verde">🟢 Verde</option>
+        <option value="amarela">🟡 Amarela</option>
+        <option value="vermelha">🔴 Vermelha</option>
+    </select>
+
+    <button type="submit">Avaliar</button>
+</form>
+{% endblock %}

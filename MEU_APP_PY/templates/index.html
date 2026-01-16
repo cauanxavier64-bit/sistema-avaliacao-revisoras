@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Início{% endblock %}
+
+{% block content %}
+<h2>Bem-vindo ao Sistema</h2>
+<p>Escolha uma opção no menu acima.</p>
+
+<div class="menu-inicial">
+    <a href="{{ url_for('revisoras') }}">👩‍🔧 Revisoras</a>
+    <a href="{{ url_for('cadastrar') }}">➕ Cadastrar Revisora</a>
+    <a href="{{ url_for('avaliar') }}">📝 Avaliar</a>
+    <a href="{{ url_for('ranking') }}">🏆 Ranking</a>
+    <a href="{{ url_for('relatorio') }}">📊 Relatório Mensal</a>
+    <a href="{{ url_for('gerenciar_revisoras') }}">⚙ Gerenciar Revisoras</a>
+    
+</div>
+{% endblock %}
+
