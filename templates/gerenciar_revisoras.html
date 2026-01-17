@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>⚙ Gerenciar Revisoras</h2>
+
+<table class="tabela">
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Status</th>
+        <th>Ações</th>
+    </tr>
+
+    {% for r in revisoras %}
+    <tr>
+        <td>{{ r[0] }}</td>
+        <td>{{ r[1] }}</td>
+        <td>
+            {% if r[2] == 1 %}
+                <span class="status ativo">Ativa</span>
+            {% else %}
+                <span class="status inativo">Inativa</span>
+            {% endif %}
+        </td>
+        <td>
+            {% if r[2] == 1 %}
+                <a class="btn danger"
+                   href="{{ url_for('alterar_status', revisora_id=r[0], status=0) }}">
+                   🚫 Desativar
+                </a>
+            {% else %}
+                <a class="btn success"
+                   href="{{ url_for('alterar_status', revisora_id=r[0], status=1) }}">
+                   ✅ Ativar
+                </a>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
+

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Ranking de Revisoras{% endblock %}
+
+{% block content %}
+
+<h2>🏆 Ranking de Revisoras</h2>
+<p class="subtitulo">
+    Mês de referência: <strong>{{ mes }}/{{ ano }}</strong>
+</p>
+
+{% if ranking %} <table class="tabela"> <thead> <tr> <th>Posição</th> <th>Revisora</th> <th>Pontos</th> </tr> </thead> <tbody>
+{% for r in ranking %} <tr class="
+             {% if loop.index == 1 %}ouro
+             {% elif loop.index == 2 %}prata
+             {% elif loop.index == 3 %}bronze
+             {% endif %}
+         "> <td><strong>{{ loop.index }}º</strong></td> <td>{{ r[0] }}</td> <td><strong>{{ r[1] }}</strong></td> </tr>
+{% endfor %} </tbody> </table>
+
+```
+<div class="acoes">
+    <a href="{{ url_for('index') }}" class="btn secondary">
+        ⬅ Voltar ao Menu
+    </a>
+</div>
+```
+
+{% else %} <p class="alert">Nenhuma avaliação registrada neste período.</p> <a href="{{ url_for('index') }}" class="btn">⬅ Voltar</a>
+{% endif %}
+
+{% endblock %}
+

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Revisoras{% endblock %}
+
+{% block content %}
+<h2>👩‍🔧 Revisoras</h2>
+
+<table class="tabela">
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Status</th>
+        <th>Ações</th>
+    </tr>
+
+    {% for r in revisoras %}
+    <tr>
+        <td>{{ r[0] }}</td>
+        <td>{{ r[1] }}</td>
+        <td>
+            {% if r[2] == 1 %}
+                <span class="status ativo">🟢 Ativa</span>
+            {% else %}
+                <span class="status inativo">🔴 Inativa</span>
+            {% endif %}
+        </td>
+        <td>
+            <a class="btn-link" href="{{ url_for('historico', revisora_id=r[0]) }}">
+                📜 Histórico
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
+
+

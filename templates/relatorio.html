@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Relatório Mensal{% endblock %}
+
+{% block content %}
+
+<h2>📊 Relatório Mensal</h2>
+<p class="subtitulo">
+    Referência: <strong>{{ mes }}/{{ ano }}</strong>
+</p>
+
+{% if dados %} <table class="tabela"> <thead> <tr> <th>Revisora</th> <th>Placas Verdes</th> <th>Placas Amarelas</th> <th>Placas Vermelhas</th> <th>Total de Pontos</th> </tr> </thead> <tbody>
+{% for linha in dados %} <tr> <td>{{ linha[0] }}</td> <td>{{ linha[1] }}</td> <td>{{ linha[2] }}</td> <td>{{ linha[3] }}</td> <td><strong>{{ linha[4] }}</strong></td> </tr>
+{% endfor %} </tbody> </table>
+
+```
+<div class="acoes">
+    <a href="{{ url_for('exportar_relatorio') }}" class="btn success">
+        📥 Exportar Excel
+    </a>
+    <a href="{{ url_for('index') }}" class="btn secondary">
+        ⬅ Menu
+    </a>
+</div>
+```
+
+{% else %} <p class="alert">Nenhum dado encontrado para este mês.</p> <a href="{{ url_for('index') }}" class="btn">⬅ Voltar</a>
+{% endif %}
+
+{% endblock %}
+

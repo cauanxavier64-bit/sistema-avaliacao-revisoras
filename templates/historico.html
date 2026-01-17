@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Histórico da Revisora{% endblock %}
+
+{% block content %}
+
+<h2>📜 Histórico da Revisora</h2>
+<p class="subtitulo">ID da revisora: <strong>{{ revisora_id }}</strong></p>
+
+{% if dados %} <table class="tabela"> <thead> <tr> <th>Data</th> <th>Placa</th> <th>Pontos</th> </tr> </thead> <tbody>
+{% for linha in dados %} <tr> <td>{{ linha[0] }}</td> <td>{{ linha[1] }}</td> <td>{{ linha[2] }}</td> </tr>
+{% endfor %} </tbody> </table>
+{% else %} <p class="alert">Nenhuma avaliação encontrada.</p>
+{% endif %}
+
+<div class="acoes">
+    <a href="{{ url_for('revisoras') }}" class="btn">⬅ Voltar</a>
+    <a href="{{ url_for('index') }}" class="btn secondary">🏠 Menu</a>
+</div>
+
+{% endblock %}
+

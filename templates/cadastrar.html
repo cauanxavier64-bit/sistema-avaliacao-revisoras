@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Cadastrar Revisora{% endblock %}
+
+{% block content %}
+
+<h2>➕ Cadastrar Revisora</h2>
+
+<div class="card">
+    <form method="POST">
+        <label for="nome">Nome da revisora</label>
+        <input
+            type="text"
+            id="nome"
+            name="nome"
+            placeholder="Ex: Maria Silva"
+            required
+        >
+
+```
+    <button type="submit" class="btn success">
+        💾 Cadastrar
+    </button>
+</form>
+```
+
+</div>
+
+{% endblock %}
+
+

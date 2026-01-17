@@ -1,0 +1,17 @@
+# Ambiente virtual
+venv/
+
+# Cache Python
+__pycache__/
+*.pyc
+
+# Bancos locais
+*.db
+
+# Exportações
+exports/
+
+# Arquivos de sistema
+.DS_Store
+
+
